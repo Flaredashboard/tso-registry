@@ -56,6 +56,13 @@
       "pattern": "^https://[A-Za-z0-9/#.-]*[^/]$",
       "examples": ["https://github.com/"]
     },
+    "twitter": {
+      "type": "string",
+      "description": "A URI to the TSO provider twitter. Must use HTTPS",
+      "maxLength": 150,
+      "pattern": "^https://twitter.com/[A-Za-z0-9/#.-]*[^/]$",
+      "examples": ["https://twitter.com/dashboard_flare/"]
+    },
     "description": {
       "type": "string",
       "description": "The description of the TSO provider",
@@ -72,7 +79,7 @@
     },
     "signature": {
       "type": "string",
-      "description": "The signature public signature of the provider",
+      "description": "The public signature of the provider",
       "pattern": "^[a-fA-F0-9]*$",
       "examples": [
         "123456789123456789123456789123456789123456789123456789123456789123456789"
@@ -82,43 +89,52 @@
       "type": "string",
       "description": "The general information of the TSO provider (e.g. long description of TSO)",
       "minLength": 10,
-      "maxLength": 1500,
+      "maxLength": 5000,
       "examples": ["general information about the cool oracle"]
     },
     "infrastructure": {
       "type": "string",
       "description": "The information about the infrastructure of the TSO provider",
       "minLength": 10,
-      "maxLength": 1500,
+      "maxLength": 5000,
       "examples": ["infrastructure information about the cool oracle"]
     },
     "safeguards": {
       "type": "string",
       "description": "The information about the safeguards of the TSO provider",
       "minLength": 10,
-      "maxLength": 1500,
+      "maxLength": 5000,
       "examples": ["safeguards information about the cool oracle"]
     },
     "availability": {
       "type": "string",
       "description": "The information about the availability of the TSO provider",
       "minLength": 10,
-      "maxLength": 1500,
+      "maxLength": 5000,
       "examples": ["availability information about the cool oracle"]
     },
     "selling": {
       "type": "string",
       "description": "The information about the selling of the TSO provider",
       "minLength": 10,
-      "maxLength": 1500,
+      "maxLength": 5000,
       "examples": ["selling information about the cool oracle"]
     },
-    "tooling" : {
+    "tooling": {
       "type": "string",
       "description": "The information about the tooling of the TSO provider",
       "minLength": 10,
-      "maxLength": 1500,
+      "maxLength": 5000,
       "examples": ["tooling information about the cool oracle"]
+    },
+    "products": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^https://[A-Za-z0-9/#.-]*[^/]$"
+      },
+      "description": "URLs of the products that the TSO provider has built. Must use HTTPS",
+      "examples": [["https://flaredashboard.io/"]]
     },
     "stso_info": { "$ref": "#/definitions/baseTso" },
     "ftso_info": { "$ref": "#/definitions/baseTso" }
