@@ -18,14 +18,27 @@ async function getUserIdFromUsername(username: string): Promise<any> {
 async function checkIdWithSmartContract(id: string, address: string) {
   const web3 = new Web3("https://coston-api.flare.network/ext/bc/C/rpc");
 
-  const contractJson = require(`./../artifacts/contracts/TsoGithubRegistry.sol/TsoGithubRegistry.json`);
+  const contractProxyJson = require(`./../artifacts/contracts/proxy/ProxyRegistry.sol/ProxyRegistry.json`);
+  const contractImplementationJson = require(`./../artifacts/contracts/TsoGithubRegistry.sol/TsoGithubRegistry.json`);
 
-  const contract = new web3.eth.Contract(
-    contractJson.abi,
-    "0x8ef1dD7abda8e7FAB4d347ef916F7e3F6292A29B"
+  const contractProxy = new web3.eth.Contract(
+    contractProxyJson.abi,
+    "0x16d6263932C4429EB6132536fb27492C8d83cA12"
   );
 
-  await contract.methods
+  const implementationAddress = await contractProxy.methods
+    .implementation()
+    .call()
+    .catch((error: any) => {
+      throw new Error(error);
+    });
+
+  const contractImplementation = new web3.eth.Contract(
+    contractImplementationJson.abi,
+    implementationAddress
+  );
+
+  await contractImplementation.methods
     .getTsoGitlabUsers(address)
     .call()
     .then((response: any) => {
