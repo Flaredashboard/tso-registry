@@ -26,31 +26,28 @@ async function checkIdWithSmartContract(id: string, address: string) {
     "0x16d6263932C4429EB6132536fb27492C8d83cA12"
   );
 
-  const implementationAddress = await contractProxy.methods
-    .implementation()
-    .call()
-    .catch((error: any) => {
-      throw new Error(error);
-    });
+  try {
+    const implementationAddress = await contractProxy.methods
+      .implementation()
+      .call();
 
-  const contractImplementation = new web3.eth.Contract(
-    contractImplementationJson.abi,
-    implementationAddress
-  );
+    const contractImplementation = new web3.eth.Contract(
+      contractImplementationJson.abi,
+      implementationAddress
+    );
 
-  await contractImplementation.methods
-    .getTsoGitlabUsers(address)
-    .call()
-    .then((response: any) => {
-      if (response.includes(id)) {
-        console.log("Authorised user");
-        return true;
-      }
-      throw new Error(`Unauthorised user for address ${address}`);
-    })
-    .catch((error: any) => {
-      throw new Error(error);
-    });
+    const response = await contractImplementation.methods
+      .getTsoGitlabUsers(address)
+      .call();
+
+    if (response.includes(id)) {
+      console.log("Authorised user");
+      return true;
+    }
+    throw new Error(`Unauthorised user for address ${address}`);
+  } catch (error: any) {
+    throw new Error(error);
+  }
 }
 
 const { argv } = yargs
