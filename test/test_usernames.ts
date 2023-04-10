@@ -6,6 +6,7 @@ describe("Usernames validator", () => {
   describe("should be valid users", () => {
     const validUsernames = {
       Beltan: "0x279194707061E021c550D1263dF57E0aff8dBfd6",
+      LukaAvbreht: "0x279194707061E021c550D1263dF57E0aff8dBfd6",
     };
 
     for (const [username, address] of Object.entries(validUsernames)) {
@@ -34,9 +35,9 @@ describe("Usernames validator", () => {
     }
   });
 
-  describe("should be invalid files", () => {
+  describe("should be invalid users", () => {
     const invalidUsernames = {
-      AvbrehtLuka: "0x279194707061E021c550D1263dF57E0aff8dBfd6",
+      randomUsername: "0x279194707061E021c550D1263dF57E0aff8dBfd6",
     };
 
     for (const [username, address] of Object.entries(invalidUsernames)) {
