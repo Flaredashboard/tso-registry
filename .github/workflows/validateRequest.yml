@@ -14,8 +14,15 @@ jobs:
         id: changed-files
         uses: tj-actions/changed-files@v35
 
-      - name: List all changed files
+      - name: Only allow one change
         run: |
-          for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
-            echo "$file was changed"
+          if: ${{ steps.changed-files.outputs.all_changed_files }}.length > 1
+            run: exit 1
           done
+
+      - name: Validate changed file
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+      - run: yarn
+      - run: yarn validate_provider ${{ steps.changed-files.outputs.all_changed_files }}[0]
