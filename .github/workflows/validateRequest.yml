@@ -15,7 +15,7 @@ jobs:
         uses: tj-actions/changed-files@v35
 
       - name: Only allow one change
-        if: ${{ steps.changed-files.outputs.all_changed_and_modified_files[@] }} > 1
+        if: ${#{ steps.changed-files.outputs.all_changed_and_modified_files }[@]} > 1
         run: exit 1
 
       - name: Validate changed file & user
