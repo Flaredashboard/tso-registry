@@ -18,9 +18,10 @@ jobs:
         if: steps.changed-files.outputs.all_changed_files.length > 1
         run: exit 1
 
-      - name: Validate changed file
+      - name: Validate changed file & user
         uses: actions/setup-node@v3
         with:
           node-version: 16.x
       - run: yarn
-      - run: yarn validate_provider ${{ steps.changed-files.outputs.all_changed_files }}[0]
+      - run: yarn validate_provider ${{ steps.changed-files.outputs.all_changed_files }}
+      - run: yarn validate_username -u ${{ github.actor }} -a ${{ steps.changed-files.outputs.all_changed_files }}
