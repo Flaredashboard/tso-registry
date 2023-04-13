@@ -24,4 +24,4 @@ jobs:
           node-version: 16.x
       - run: yarn
       - run: yarn validate_provider ${{ steps.changed-files.outputs.all_changed_files }}
-      - run: yarn validate_username -u ${{ github.actor }} -a ${{ steps.changed-files.outputs.all_changed_files }}
+      - run: yarn validate_username -u ${{ github.actor }} -a $(basename -as .json {{ steps.changed-files.outputs.all_changed_files }})
