@@ -15,10 +15,8 @@ jobs:
         uses: tj-actions/changed-files@v35
 
       - name: Only allow one change
-        run: |
-          if: ${{ steps.changed-files.outputs.all_changed_files }}.length > 1
-            run: exit 1
-          done
+        if: steps.changed-files.outputs.all_changed_files.length > 1
+        run: exit 1
 
       - name: Validate changed file
         uses: actions/setup-node@v3
