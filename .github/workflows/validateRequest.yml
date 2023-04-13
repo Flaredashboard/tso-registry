@@ -15,7 +15,7 @@ jobs:
         uses: tj-actions/changed-files@v35
 
       - name: Only allow one change
-        if: steps.changed-files.outputs.all_changed_files.length > 1
+        if: ${{ steps.changed-files.outputs.all_changed_and_modified_files[@] }} > 1
         run: exit 1
 
       - name: Validate changed file & user
@@ -23,5 +23,5 @@ jobs:
         with:
           node-version: 16.x
       - run: yarn
-      - run: yarn validate_provider ${{ steps.changed-files.outputs.all_changed_files }}
+      - run: yarn validate_provider ${{ steps.changed-files.outputs.all_changed_and_modified_files }}
       - run: yarn validate_username -u ${{ github.actor }} -a $(basename -as .json ${{ steps.changed-files.outputs.all_changed_files }})
