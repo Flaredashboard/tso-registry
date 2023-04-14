@@ -8,12 +8,6 @@
       "type": "object",
       "required": ["chainId", "address"],
       "properties": {
-        "chainId": {
-          "type": "integer",
-          "description": "The chain ID (14: Flare, 19: Songbird) where this TSO provider is submitting prices",
-          "enum": [19, 14],
-          "examples": [19, 14]
-        },
         "address": {
           "type": "string",
           "description": "The checksummed address of the FTSO provider on the specified chain ID",
@@ -34,7 +28,12 @@
             "pattern": "^0x[a-fA-F0-9]{40}$"
           },
           "description": "The addresses that the TSO provider is claiming the rewards to",
-          "examples": [["0x7d0F24d863961e7C51C28A3eC092C96239FBD05e", "0x7d0F24d863961e7C51C28A3eC092C96239dd00ff" ]]
+          "examples": [
+            [
+              "0x7d0F24d863961e7C51C28A3eC092C96239FBD05e",
+              "0x7d0F24d863961e7C51C28A3eC092C96239dd00ff"
+            ]
+          ]
         }
       }
     }
@@ -136,8 +135,78 @@
       "description": "URLs of the products that the TSO provider has built. Must use HTTPS",
       "examples": [["https://flaredashboard.io/"]]
     },
-    "stso_info": { "$ref": "#/definitions/baseTso" },
-    "ftso_info": { "$ref": "#/definitions/baseTso" }
+    "stso_info": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/baseTso"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "chainId": {
+              "type": "integer",
+              "description": "The chain ID (14: Flare, 19: Songbird) where this TSO provider is submitting prices",
+              "enum": [19],
+              "examples": [19]
+            }
+          }
+        }
+      ]
+    },
+    "ftso_info": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/baseTso"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "chainId": {
+              "type": "integer",
+              "description": "The chain ID (14: Flare, 19: Songbird) where this TSO provider is submitting prices",
+              "enum": [14],
+              "examples": [14]
+            }
+          }
+        }
+      ]
+    },
+    "coston_info": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/baseTso"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "chainId": {
+              "type": "integer",
+              "description": "The chain ID (14: Flare, 19: Songbird) where this TSO provider is submitting prices",
+              "enum": [16],
+              "examples": [16]
+            }
+          }
+        }
+      ]
+    },
+    "coston2_info": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/baseTso"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "chainId": {
+              "type": "integer",
+              "description": "The chain ID (14: Flare, 19: Songbird) where this TSO provider is submitting prices",
+              "enum": [114],
+              "examples": [114]
+            }
+          }
+        }
+      ]
+    }
   },
   "anyOf": [
     {
@@ -145,13 +214,14 @@
     },
     {
       "required": ["ftso_info"]
+    },
+    {
+      "required": ["coston_info"]
+    },
+    {
+      "required": ["coston2_info"]
     }
   ],
-  "required": [
-    "name",
-    "description",
-    "website",
-    "logoURI"
-  ],
+  "required": ["name", "description", "website", "logoURI"],
   "additionalProperties": false
 }
