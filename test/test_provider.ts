@@ -38,6 +38,7 @@ describe("Provider validator", () => {
   describe("should be invalid files", () => {
     const invalidFiles = [
       "test/test_providers/test_KO_no_chain.json",
+      "test/test_providers/test_KO_mix_chain_id.json",
       "test/test_providers/test_KO_bad_structure.json",
       "test/test_providers/test_KO_bad_chain_id.json",
       "test/test_providers/test_KO_bad_percentage.json",
