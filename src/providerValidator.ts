@@ -1,12 +1,11 @@
 import Ajv from "ajv";
-import yargs, { Argv } from "yargs";
+import yargs from "yargs";
 import * as fs from "fs"
 
-async function validateMain(fileName: string) {
+async function validateFileFormat(fileName: string) {
   const ajv = new Ajv();
   const schema = JSON.parse(fs.readFileSync("src/singleProviderSchema.json", {encoding:'utf8', flag:'r'}))
 
-  // console.log(schema)
   if(!fs.existsSync(fileName)){
     throw new Error(`No such file: "${fileName}"`)
   }
@@ -20,9 +19,8 @@ async function validateMain(fileName: string) {
     console.log("Valid format of TSO provider file");
     return true;
   }
-  // console.log(validate.errors);
-  throw new Error(`Invalid format of TSO provider file "${fileName}"`)
 
+  throw new Error(`Invalid format of TSO provider file "${fileName}"`)
 }
 
 const { argv } = yargs.scriptName("Validate provider file").option("f", {
@@ -36,7 +34,7 @@ const { argv } = yargs.scriptName("Validate provider file").option("f", {
 // @ts-ignore
 const { providerFile } = argv;
 
-validateMain(providerFile)
+validateFileFormat(providerFile)
   .then(() => process.exit(0))
   .catch((error) => {
     console.error(error);
