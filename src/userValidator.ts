@@ -2,6 +2,21 @@ import axios, { AxiosResponse } from "axios";
 import Web3 from "web3";
 import yargs from "yargs";
 
+function getRpcFromChainId(chainId: number) {
+  switch (chainId) {
+    case 14:
+      return "https://flare-api.flare.network/ext/C/rpc";
+    case 16:
+      return "https://coston-api.flare.network/ext/C/rpc";
+    case 19:
+      return "https://songbird-api.flare.network/ext/C/rpc";
+    case 114:
+      return "https://coston2-api.flare.network/ext/C/rpc";
+    default:
+      throw new Error(`Invalid chain id: ${chainId}`);
+  }
+}
+
 async function getUserIdFromUsername(username: string): Promise<any> {
   try {
     const response: AxiosResponse = await axios.get(
@@ -15,8 +30,13 @@ async function getUserIdFromUsername(username: string): Promise<any> {
   }
 }
 
-async function checkIdWithSmartContract(id: string, address: string) {
-  const web3 = new Web3("https://coston-api.flare.network/ext/bc/C/rpc");
+async function checkIdWithSmartContract(
+  id: string,
+  address: string,
+  chainId: number
+) {
+  const rpc = getRpcFromChainId(chainId);
+  const web3 = new Web3(rpc);
 
   const contractProxyJson = require(`./../artifacts/contracts/proxy/ProxyRegistry.sol/ProxyRegistry.json`);
   const contractImplementationJson = require(`./../artifacts/contracts/TsoGithubRegistry.sol/TsoGithubRegistry.json`);
@@ -44,7 +64,7 @@ async function checkIdWithSmartContract(id: string, address: string) {
       console.log("Authorised user");
       return true;
     }
-    throw new Error(`Unauthorised user for address ${address}`);
+    throw new Error(`Unauthorised user for address ${address} on chain ${chainId}`);
   } catch (error: any) {
     throw new Error(error);
   }
@@ -65,13 +85,20 @@ const { argv } = yargs
     demandOption: "Address is required",
     type: "string",
     nargs: 1,
+  })
+  .option("c", {
+    alias: "chainId",
+    describe: "Submitting chain of TSO",
+    demandOption: "ChainId is required",
+    type: "number",
+    nargs: 1,
   });
 
 // @ts-ignore
-const { username, address } = argv;
+const { username, address, chainId } = argv;
 
 getUserIdFromUsername(username).then((id) => {
-  checkIdWithSmartContract(id, address)
+  checkIdWithSmartContract(id, address, chainId)
     .then(() => process.exit(0))
     .catch((error) => {
       console.error(error);
