@@ -19,6 +19,14 @@ jobs:
         if: contains(steps.changed-files.outputs.all_changed_and_modified_files, ' ')
         run: exit 1
 
+      - name: File is in providers folder
+        if: ${{ !startsWith(steps.changed-files.outputs.all_changed_and_modified_files, 'providers/') }}
+        run: exit 1
+
+      - name: File has .json extension
+        if: ${{ !endsWith(steps.changed-files.outputs.all_changed_and_modified_files, '.json') }}
+        run: exit 1
+
       - name: Validate changed file & user
         uses: actions/setup-node@v3
         with:
