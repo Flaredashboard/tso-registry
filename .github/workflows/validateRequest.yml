@@ -35,5 +35,6 @@ jobs:
       - if: contains(steps.changed-files.outputs.deleted_files, ' ')
         run: yarn validate_file_deletion -u ${{ github.actor }} -f ${{ steps.changed-files.outputs.deleted_files }}
       - if: ${{ !contains(steps.changed-files.outputs.deleted_files, ' ') }}
-        run: yarn validate_provider ${{ steps.changed-files.outputs.all_changed_and_modified_files }}
-        run: yarn validate_file_addresses -u ${{ github.actor }} -f ${{ steps.changed-files.outputs.all_changed_and_modified_files }}
+        run: |
+          yarn validate_provider ${{ steps.changed-files.outputs.all_changed_and_modified_files }}
+          yarn validate_file_addresses -u ${{ github.actor }} -f ${{ steps.changed-files.outputs.all_changed_and_modified_files }}
