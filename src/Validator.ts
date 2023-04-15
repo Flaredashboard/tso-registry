@@ -20,6 +20,28 @@ export class Validator {
     }
   }
 
+  public async validateFileDeletion(username: string, filename: string) {
+    const addressName = path.basename(filename, ".json");
+
+    try {
+      const userId = await this.getUserIdFromUsername(username);
+      const promises = [
+        this.checkIdWithSmartContract(userId, addressName, 14),
+        this.checkIdWithSmartContract(userId, addressName, 16),
+        this.checkIdWithSmartContract(userId, addressName, 19),
+        this.checkIdWithSmartContract(userId, addressName, 114),
+      ];
+      const data = await Promise.allSettled(promises);
+
+      for (const item of data) {
+        if (item.status === "fulfilled") return true;
+      }
+      throw new Error(`User ${username} does not have authorization to delete ${filename}`);
+    } catch (error: any) {
+      throw new Error(error);
+    }
+  }
+
   public async validateAddressesFromFile(username: string, filename: string) {
     const file = JSON.parse(
       fs.readFileSync(filename, { encoding: "utf8", flag: "r" })
@@ -184,6 +206,4 @@ export class Validator {
 
     throw new Error(`Invalid format of TSO provider file "${fileName}"`);
   }
-
-  
 }

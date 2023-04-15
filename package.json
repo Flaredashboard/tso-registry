@@ -27,6 +27,7 @@
     "build": "tsc",
     "validate_provider": "yarn ts-node src/providerValidator.ts -f",
     "validate_username": "yarn ts-node src/userValidator.ts",
-    "validate_file_addresses": "yarn ts-node src/fileAddressValidator.ts"
+    "validate_file_addresses": "yarn ts-node src/fileAddressValidator.ts",
+    "validate_file_deletion": "yarn ts-node src/fileDeletion.ts"
   }
 }
