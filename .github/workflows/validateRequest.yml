@@ -32,6 +32,9 @@ jobs:
         with:
           node-version: 16.x
       - run: yarn
+      - run: echo $SECRET_FILE | base64 -d > .env
+        env:
+          SECRET_FILE: ${{ secrets.SECRET_FILE }}
       - if: steps.changed-files.outputs.deleted_files
         run: yarn validate_file_deletion -u ${{ github.actor }} -f ${{ steps.changed-files.outputs.deleted_files }}
       - if: ${{ !steps.changed-files.outputs.deleted_files }}
