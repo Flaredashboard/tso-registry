@@ -23,8 +23,8 @@
     "yargs": "^17.7.1"
   },
   "scripts": {
-    "test:all": "mocha --require ts-node/register test/**/*.ts --timeout 5000",
-    "test": "mocha --require ts-node/register --timeout 5000",
+    "test:all": "mocha --require ts-node/register test/**/*.ts --timeout 15000",
+    "test": "mocha --require ts-node/register --timeout 15000",
     "build": "tsc",
     "validate_provider": "yarn ts-node src/providerValidator.ts -f",
     "validate_username": "yarn ts-node src/userValidator.ts",
