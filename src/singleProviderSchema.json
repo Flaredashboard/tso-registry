@@ -171,7 +171,7 @@
         }
       ]
     },
-    "coston_info": {
+    "ctso_info": {
       "allOf": [
         {
           "$ref": "#/definitions/baseTso"
@@ -189,7 +189,7 @@
         }
       ]
     },
-    "coston2_info": {
+    "c2tso_info": {
       "allOf": [
         {
           "$ref": "#/definitions/baseTso"
@@ -216,10 +216,10 @@
       "required": ["ftso_info"]
     },
     {
-      "required": ["coston_info"]
+      "required": ["ctso_info"]
     },
     {
-      "required": ["coston2_info"]
+      "required": ["c2tso_info"]
     }
   ],
   "required": ["name", "description", "website", "logoURI"],
