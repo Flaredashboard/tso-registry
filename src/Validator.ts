@@ -184,6 +184,52 @@ export class Validator {
     }
   }
 
+  private getAddressesFromFile(file: any) {
+    let addresses = [];
+    if ("ftso_info" in file) {
+      addresses.push(file.ftso_info.address);
+    }
+    if ("stso_info" in file) {
+      addresses.push(file.stso_info.address);
+    }
+    if ("ctso_info" in file) {
+      addresses.push(file.ctso_info.address);
+    }
+    if ("c2tso_info" in file) {
+      addresses.push(file.c2tso_info.address);
+    }
+
+    return addresses;
+  }
+
+  private isAddressDuplicated(filename: string) {
+    const originalFile = JSON.parse(
+      fs.readFileSync(filename, { encoding: "utf8", flag: "r" })
+    );
+    const originalAddresses = this.getAddressesFromFile(originalFile);
+
+    let duplicated = false;
+    fs.readdirSync("providers").forEach((filename) => {
+      if (path.parse(filename).ext !== ".json") return;
+
+      const file = JSON.parse(
+        fs.readFileSync(path.resolve("providers", filename), {
+          encoding: "utf8",
+          flag: "r",
+        })
+      );
+
+      const addresses = this.getAddressesFromFile(file);
+      const intersection = originalAddresses.filter((value) =>
+        addresses.includes(value)
+      );
+
+      if (intersection.length !== 0) duplicated = true;
+    });
+
+    return duplicated;
+  }
+
   public async validateFileDeletion(username: string, filename: string) {
     const addressName = path.basename(filename, ".json");
 
@@ -216,6 +262,12 @@ export class Validator {
     // 10 (containing folder) + 42 address + 5 suffix (.json)
     if (filename.length !== 57) {
       throw new Error("Filename is not valid");
+    }
+
+    if (this.isAddressDuplicated(filename)) {
+      throw new Error(
+        `File ${filename} contains a conflicting address with another file`
+      );
     }
 
     const addressName = path.basename(filename, ".json");
