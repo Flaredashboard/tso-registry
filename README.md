@@ -68,7 +68,7 @@ Optional fields:
 - infrastructure (information about the TSO infrastructure setups and costs)
 - safeguards (information about the algorithm safeguards that the TSO has implemented)
 - availability (information about how long the TSO has been operating, average uptime and downtimes, etc)
-- selling (information about what does the TSO do with the rewards earned)
+- selling (information about what the TSO does with their rewards earned)
 - tooling (information about the products that the TSO team has built and future build plans)
 - products (array of urls in https format to the products built by the TSO team)
 
