@@ -8,21 +8,17 @@ import * as dotenv from "dotenv";
 dotenv.config();
 
 export class Validator {
+  registryAddress = "0xaD67FE66660Fb8dFE9d6b1b4240d8650e30F6019";
   githubConfig = {
     headers: {
       Authorization: `Bearer ${process.env.GITHUB_API_TOKEN}`,
     },
   };
-
   flareConfig = {
     headers: {
       "x-apikey": process.env.FLARE_API_KEY,
     },
   };
-
-  private getRegistryAddress() {
-    return "0xaD67FE66660Fb8dFE9d6b1b4240d8650e30F6019";
-  }
 
   private getRpcFromChainId(chainId: number) {
     switch (chainId) {
@@ -182,7 +178,7 @@ export class Validator {
 
   private async getRegistry(chainId: number) {
     try {
-      return await this.createContract(chainId, this.getRegistryAddress());
+      return await this.createContract(chainId, this.registryAddress);
     } catch (error) {
       throw new Error(`getRegistry failed: ${error}`);
     }
