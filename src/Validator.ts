@@ -71,9 +71,7 @@ export class Validator {
       if (providers.includes(address)) return true;
     }
 
-    throw new Error(
-      `Address ${address} is not whitelisted for any asset on chain ${chainId}`
-    );
+    throw new Error(`Address is not whitelisted for any asset`);
   }
 
   private async getWhitelistedProvidersForAsset(
@@ -202,18 +200,19 @@ export class Validator {
     return addresses;
   }
 
-  private isAddressDuplicated(filename: string) {
+  private isAddressDuplicated(dir: string, filename: string) {
     const originalFile = JSON.parse(
       fs.readFileSync(filename, { encoding: "utf8", flag: "r" })
     );
     const originalAddresses = this.getAddressesFromFile(originalFile);
 
     let duplicated = false;
-    fs.readdirSync("providers").forEach((filename) => {
-      if (path.parse(filename).ext !== ".json") return;
+    fs.readdirSync(dir).forEach((name) => {
+      if (filename === dir.concat(`/${name}`)) return;
+      if (path.parse(name).ext !== ".json") return;
 
       const file = JSON.parse(
-        fs.readFileSync(path.resolve("providers", filename), {
+        fs.readFileSync(path.resolve(dir, name), {
           encoding: "utf8",
           flag: "r",
         })
@@ -259,12 +258,7 @@ export class Validator {
       fs.readFileSync(filename, { encoding: "utf8", flag: "r" })
     );
 
-    // 10 (containing folder) + 42 address + 5 suffix (.json)
-    if (filename.length !== 57) {
-      throw new Error("Filename is not valid");
-    }
-
-    if (this.isAddressDuplicated(filename)) {
+    if (this.isAddressDuplicated(path.dirname(filename), filename)) {
       throw new Error(
         `File ${filename} contains a conflicting address with another file`
       );

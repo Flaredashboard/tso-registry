@@ -1,0 +1,10 @@
+{
+  "name": "My awesome TSO",
+  "website": "https://myawesometso.com",
+  "description": "My awesome TSO.",
+  "logoURI": "ipfs://Qme7ss3ARVgxv6rXqVPiikMJ8u2NLgmgszg13pYrDKEoiu",
+  "ctso_info": {
+    "chainId": 16,
+    "address": "0x96388288fa6d80cba355b38b7D9BFB4A94306Ab4"
+  }
+}
