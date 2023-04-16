@@ -218,10 +218,6 @@ export class Validator {
       throw new Error("Filename is not valid");
     }
 
-    if (!filename.startsWith("providers/")) {
-      throw new Error("Filename is not inside providers folder");
-    }
-
     const addressName = path.basename(filename, ".json");
     let addressNameValidated = false;
 
