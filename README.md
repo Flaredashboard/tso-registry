@@ -80,7 +80,7 @@ The full details of the accepted schema can be found in src/singleProviderSchema
     - Use our Dapp.
     - Alternatively:
         - Check your user id with the endpoint https://api.github.com/users/{username}
-        - Call the method getTsoGitlabUsers from your submitting address with all the userIds that you want to authorise. The proxy contract is on 0x16d6263932C4429EB6132536fb27492C8d83cA12.
+        - Call the method getTsoGithubUsers from your submitting address with all the userIds that you want to authorise. The proxy contract is on 0x1016048AA9C2A188E11e0B10c0ad6dC25517B5e4.
 - Fork the repo
 - Add or edit your file. The name of the file should be the submitting address. If your TSO submits on both chains the name should be the Flare address.
 - Submit a Pull Request to this repo.

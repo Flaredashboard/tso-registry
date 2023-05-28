@@ -376,7 +376,7 @@ export class Validator {
 
     const contractProxy = new web3.eth.Contract(
       contractProxyJson.abi,
-      "0x16d6263932C4429EB6132536fb27492C8d83cA12"
+      "0x1016048AA9C2A188E11e0B10c0ad6dC25517B5e4"
     );
 
     try {
@@ -390,7 +390,7 @@ export class Validator {
       );
 
       const response = await contractImplementation.methods
-        .getTsoGitlabUsers(address)
+        .getTsoGithubUsers(address)
         .call();
 
       if (response.includes(id)) {
