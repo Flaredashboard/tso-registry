@@ -376,7 +376,7 @@ export class Validator {
 
     const contractProxy = new web3.eth.Contract(
       contractProxyJson.abi,
-      "0x1016048AA9C2A188E11e0B10c0ad6dC25517B5e4"
+      "0xda64978ff8f5fAAE13A928d0E6548bc0756205C3"
     );
 
     try {
