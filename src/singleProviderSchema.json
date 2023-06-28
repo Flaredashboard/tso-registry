@@ -6,7 +6,7 @@
   "definitions": {
     "baseTso": {
       "type": "object",
-      "required": ["chainId", "address"],
+      "required": ["chainId", "address", "epoch"],
       "properties": {
         "address": {
           "type": "string",
@@ -14,11 +14,10 @@
           "pattern": "^0x[a-fA-F0-9]{40}$",
           "examples": ["0x7d0F24d863961e7C51C28A3eC092C96239FBD05e"]
         },
-        "sell_percentage": {
+        "epoch": {
           "type": "number",
-          "description": "The percentage of the total reward that the TSO provider is instantly selling",
+          "description": "The first epoch where the TSO began submitting",
           "minimum": 0,
-          "maximum": 100,
           "examples": [10]
         },
         "claim_addresses": {
@@ -61,6 +60,30 @@
       "maxLength": 150,
       "pattern": "^https://twitter.com/[A-Za-z0-9/#.-]*[^/]$",
       "examples": ["https://twitter.com/dashboard_flare/"]
+    },
+    "members": {
+      "type": "number",
+      "description": "Number of members running the TSO",
+      "minimum": 1,
+      "examples": [3]
+    },
+    "country": {
+      "type": "string",
+      "description": "Country where the headquarters are located",
+      "maxLength": 20,
+      "examples": ["Australia"]
+    },
+    "nodes": {
+      "type": "number",
+      "description": "Number of nodes that the team is running on both chains",
+      "minimum": 0,
+      "examples": [4]
+    },
+    "categories": {
+      "type": "string",
+      "description": "Categories where the TSO is building their products",
+      "enum": ["NFT", "DeFi", "Metaverse", "Wallets", "Gaming", "Utilities"],
+      "examples": ["NFT"]
     },
     "description": {
       "type": "string",
@@ -111,13 +134,6 @@
       "minLength": 10,
       "maxLength": 5000,
       "examples": ["availability information about the cool oracle"]
-    },
-    "selling": {
-      "type": "string",
-      "description": "The information about the selling of the TSO provider",
-      "minLength": 10,
-      "maxLength": 5000,
-      "examples": ["selling information about the cool oracle"]
     },
     "tooling": {
       "type": "string",

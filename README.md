@@ -54,10 +54,14 @@ Required fields:
 - description (short description about the TSO)
 - website (must be https)
 - logoURI (must be https or ipfs)
+- members (number of members of the team running the TSO)
+- country (country where the headquarters are located)
+- nodes (total number of nodes that the TSO runs on both chains)
+- categories (array of categories that the team is building products)
 - ftso_info/stso_info (at least one is required)
     - chainId (14 for Flare, 19 for Songbird) - Required
     - address (submitting address of the TSO) - Required
-    - sell_percentage (percentatge of the rewards sold by the TSO) - Optional
+    - epoch (first epoch where the TSO began submitting) - Required
     - claim_addresses (array of addresses where the TSO claims or stores rewards) - Optional
 
 Optional fields:
@@ -68,7 +72,6 @@ Optional fields:
 - infrastructure (information about the TSO infrastructure setups and costs)
 - safeguards (information about the algorithm safeguards that the TSO has implemented)
 - availability (information about how long the TSO has been operating, average uptime and downtimes, etc)
-- selling (information about what the TSO does with their rewards earned)
 - tooling (information about the products that the TSO team has built and future build plans)
 - products (array of urls in https format to the products built by the TSO team)
 
