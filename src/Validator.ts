@@ -190,12 +190,6 @@ export class Validator {
     if ("stso_info" in file) {
       addresses.push(file.stso_info.address);
     }
-    if ("ctso_info" in file) {
-      addresses.push(file.ctso_info.address);
-    }
-    if ("c2tso_info" in file) {
-      addresses.push(file.c2tso_info.address);
-    }
 
     return addresses;
   }
@@ -304,42 +298,6 @@ export class Validator {
         await this.checkProviderIsWhitelisted(
           file.stso_info.chainId,
           file.stso_info.address
-        );
-      }
-      if ("ctso_info" in file) {
-        if (!addressNameValidated && addressName === file.ctso_info.address) {
-          addressNameValidated = true;
-        } else {
-          throw new Error("Filename address does not match Coston");
-        }
-
-        await this.checkIdWithSmartContract(
-          userId,
-          file.ctso_info.address,
-          file.ctso_info.chainId
-        );
-
-        await this.checkProviderIsWhitelisted(
-          file.ctso_info.chainId,
-          file.ctso_info.address
-        );
-      }
-      if ("c2tso_info" in file) {
-        if (!addressNameValidated && addressName === file.c2tso_info.address) {
-          addressNameValidated = true;
-        } else {
-          throw new Error("Filename address does not match Coston2");
-        }
-
-        await this.checkIdWithSmartContract(
-          userId,
-          file.c2tso_info.address,
-          file.c2tso_info.chainId
-        );
-
-        await this.checkProviderIsWhitelisted(
-          file.c2tso_info.chainId,
-          file.c2tso_info.address
         );
       }
     } catch (error: any) {

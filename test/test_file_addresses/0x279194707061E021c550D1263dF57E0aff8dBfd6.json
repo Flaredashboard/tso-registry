@@ -3,8 +3,13 @@
   "website": "https://myawesometso.com",
   "description": "My awesome TSO.",
   "logoURI": "ipfs://Qme7ss3ARVgxv6rXqVPiikMJ8u2NLgmgszg13pYrDKEoiu",
+  "members": 1,
+  "country": "Spain",
+  "nodes": 4,
+  "categories": ["Utilities"],
   "ctso_info": {
     "chainId": 16,
-    "address": "0x279194707061E021c550D1263dF57E0aff8dBfd6"
+    "address": "0x279194707061E021c550D1263dF57E0aff8dBfd6",
+    "epoch": 50
   }
 }

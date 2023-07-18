@@ -4,6 +4,10 @@
   "name": "Bifrost Oracle",
   "description": "Bifrost Oracle is a reliable Flare oracle service run by Towo Labs, a Flare Network development partner and the company behind Bifrost Wallet.",
   "website": "https://bifrostoracle.com",
+  "members": 1,
+  "country": "Spain",
+  "nodes": 4,
+  "categories": ["Utilities"],
   "logoURI": "ipfs://QmQqeBKAubYHyhJZ7QQzfDmWkxhrnCFmrQKxha4cwKTouC",
   "signature": "123456789123456789123456789123456789123456789123456789123456789123456789"
 }

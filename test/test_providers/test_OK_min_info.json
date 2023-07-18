@@ -3,8 +3,13 @@
   "website": "https://aforacle.com",
   "description": "AFOracle is an FTSO provider from AFLabs, a team that helped build the Flare's smart contract infrastructure.",
   "logoURI": "ipfs://Qme7ss3ARVgxv6rXqVPiikMJ8u2NLgmgszg13pYrDKEoiu",
+  "members": 1,
+  "country": "Spain",
+  "nodes": 4,
+  "categories": ["Utilities"],
   "stso_info": {
     "chainId": 19,
-    "address": "0x69141e890f3a79cd2cff552c0b71508be23712dc"
+    "address": "0x69141e890f3a79cd2cff552c0b71508be23712dc",
+    "epoch": 50
   }
 }

@@ -2,18 +2,21 @@
   "name": "AFOracle",
   "website": "https://aforacle.com",
   "description": "AFOracle is an FTSO provider from AFLabs, a team that helped build the Flare's smart contract infrastructure.",
+  "members": 1,
+  "country": "Spain",
+  "nodes": 4,
+  "categories": ["Utilities"],
   "general": "We are a team of dApp/tooling developers. We are based in Slovenia. ",
   "infrastructure": "We run all of our infrastructure. Flare and songbird nodes (also coston2 node for testing). Backup nodes and separate server for exchange data aggregation. Cca 2000 ero/month",
   "safeguards": "Yes we have a few safeguards. Some are better than others but it is getting better.",
   "availability": "We started submitting on epoch 2 on SGB. We are among the oldest FTSO’s",
-  "selling": "We have to sell some to cover the taxes and infra costs (cca 30%)  We try to sell when volume spikes and not to crash the market. Cca 30% are left for long term holding/compounding. Rest is sold when we see fit.",
   "tooling": "Connect libs, periphery. Some python tooling specific to flare…",
   "logoURI": "ipfs://Qme7ss3ARVgxv6rXqVPiikMJ8u2NLgmgszg13pYrDKEoiu",
   "signature": "1523478afb9565d813a3a0CEa62B3bDB9A4e236dCb5910c4f0",
   "stso_info": {
     "chainId": 19,
     "address": "0x69141e890f3a79cd2cff552c0b71508be23712dc",
-    "sell_percentage": 30,
+    "epoch": 50,
     "claim_addresses": [
       "0x69141e890f3a79cd2cff552c0b71508be23712dc",
       "0xAf05Ac13F4a4e754a496B46bbd611F5FFDb42606"
@@ -22,7 +25,7 @@
   "ftso_info": {
     "chainId": 14,
     "address": "0xAf05Ac13F4a4e754a496B46bbd611F5FFDb42606",
-    "sell_percentage": 20,
+    "epoch": 50,
     "claim_addresses": [
     ]
   }

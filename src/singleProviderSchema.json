@@ -80,16 +80,19 @@
       "examples": [4]
     },
     "categories": {
-      "type": "string",
+      "type": "array",
       "description": "Categories where the TSO is building their products",
-      "enum": ["NFT", "DeFi", "Metaverse", "Wallets", "Gaming", "Utilities"],
+      "items": {
+        "type": "string",
+        "enum": ["NFT", "DeFi", "Metaverse", "Wallets", "Gaming", "Utilities"]
+      },
       "examples": ["NFT"]
     },
     "description": {
       "type": "string",
       "description": "The description of the TSO provider",
       "minLength": 10,
-      "maxLength": 350,
+      "maxLength": 200,
       "pattern": "^[ \\w.'+\\-%/À-ÖØ-öø-ÿ:&\\[\\]\\(\\)]+",
       "examples": ["description of the cool oracle"]
     },
@@ -186,42 +189,6 @@
           }
         }
       ]
-    },
-    "ctso_info": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/baseTso"
-        },
-        {
-          "type": "object",
-          "properties": {
-            "chainId": {
-              "type": "integer",
-              "description": "The chain ID (14: Flare, 19: Songbird) where this TSO provider is submitting prices",
-              "enum": [16],
-              "examples": [16]
-            }
-          }
-        }
-      ]
-    },
-    "c2tso_info": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/baseTso"
-        },
-        {
-          "type": "object",
-          "properties": {
-            "chainId": {
-              "type": "integer",
-              "description": "The chain ID (14: Flare, 19: Songbird) where this TSO provider is submitting prices",
-              "enum": [114],
-              "examples": [114]
-            }
-          }
-        }
-      ]
     }
   },
   "anyOf": [
@@ -230,14 +197,8 @@
     },
     {
       "required": ["ftso_info"]
-    },
-    {
-      "required": ["ctso_info"]
-    },
-    {
-      "required": ["c2tso_info"]
     }
   ],
-  "required": ["name", "description", "website", "logoURI"],
+  "required": ["name", "description", "website", "logoURI", "members", "country", "nodes", "categories"],
   "additionalProperties": false
 }

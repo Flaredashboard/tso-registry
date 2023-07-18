@@ -41,7 +41,7 @@ describe("Provider validator", () => {
       "test/test_providers/test_KO_mix_chain_id.json",
       "test/test_providers/test_KO_bad_structure.json",
       "test/test_providers/test_KO_bad_chain_id.json",
-      "test/test_providers/test_KO_bad_percentage.json",
+      "test/test_providers/test_KO_bad_epoch.json",
       "test/test_providers/test_KO_bad_url.json",      
       "test/test_providers/test_KO_bad_address.json",
     ];
