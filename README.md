@@ -1,48 +1,15 @@
 # tso-registry
 
-## To start the project follow
+## How to submit a file
 
-### Install dependencies
-
-```
-yarn
-```
-
-### Run tests
-
-```
-yarn test:all
-```
-
-To run a specific set of tests:
-
-```
-yarn test <path>
-```
-
-### Validate provider
-
-```
-yarn validate_provider <path>
-```
-
-### Validate username
-
-```
-yarn validate_username -u <username> -a <address> -c <chain>
-```
-
-### Validate file addresses
-
-```
-yarn validate_file_addresses -u <username> -f <path>
-```
-
-### Validate file deletion
-
-```
-yarn validate_file_deletion -u <username> -f <path>
-```
+- Authorise your github user/s with one of the following methods:
+    - Use our Dapp.
+    - Alternatively:
+        - Check your user id with the endpoint https://api.github.com/users/{username}
+        - Call the method getTsoGithubUsers from your submitting address with all the userIds that you want to authorise. The proxy contract is on 0xda64978ff8f5fAAE13A928d0E6548bc0756205C3.
+- Fork the repo
+- Add or edit your file. The name of the file should be the submitting address. If your TSO submits on both chains the name should be the Flare address.
+- Submit a Pull Request to this repo.
 
 ## File format
 
@@ -77,13 +44,50 @@ Optional fields:
 
 The full details of the accepted schema can be found in src/singleProviderSchema.json.
 
-## How to submit a file
+## To start the project follow
 
-- Authorise your github user/s with one of the following methods:
-    - Use our Dapp.
-    - Alternatively:
-        - Check your user id with the endpoint https://api.github.com/users/{username}
-        - Call the method getTsoGithubUsers from your submitting address with all the userIds that you want to authorise. The proxy contract is on 0xda64978ff8f5fAAE13A928d0E6548bc0756205C3.
-- Fork the repo
-- Add or edit your file. The name of the file should be the submitting address. If your TSO submits on both chains the name should be the Flare address.
-- Submit a Pull Request to this repo.
+### Install dependencies
+
+```
+yarn
+```
+
+To make sure your file will pass the validations you can run the following checks before submitting your pull request.
+
+### Validate provider
+
+```
+yarn validate_provider <path>
+```
+
+### Validate username
+
+```
+yarn validate_username -u <username> -a <address> -c <chain>
+```
+
+### Validate file addresses
+
+```
+yarn validate_file_addresses -u <username> -f <path>
+```
+
+### Validate file deletion
+
+```
+yarn validate_file_deletion -u <username> -f <path>
+```
+
+## Development
+
+### Run tests
+
+```
+yarn test:all
+```
+
+To run a specific set of tests:
+
+```
+yarn test <path>
+```
