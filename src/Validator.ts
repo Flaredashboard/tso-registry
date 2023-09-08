@@ -355,6 +355,22 @@ export class Validator {
         console.log("Authorised user");
         return true;
       }
+
+      const pollingAddress = await this.getAddressFromContractName(
+        chainId,
+        "PollingFtso"
+      );
+      const pollingContract = await this.createContract(chainId, pollingAddress);
+
+      const proxyAddress = await pollingContract.methods
+        .providerToProxy(address)
+        .call();
+
+      if (response.includes(proxyAddress)) {
+        console.log("Authorised user");
+        return true;
+      }
+
       throw new Error(
         `Unauthorised user for address ${address} on chain ${chainId}`
       );
