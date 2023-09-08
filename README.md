@@ -3,12 +3,12 @@
 ## How to submit a file
 
 - Authorise your github user/s with one of the following methods:
-    - Use our Dapp.
+    - Use our Dapp: https://app.flaredashboard.io/
     - Alternatively:
         - Check your user id with the endpoint https://api.github.com/users/{username}
         - Call the method getTsoGithubUsers from your submitting address with all the userIds that you want to authorise. The proxy contract is on 0xda64978ff8f5fAAE13A928d0E6548bc0756205C3.
 - Fork the repo
-- Add or edit your file. The name of the file should be the submitting address. If your TSO submits on both chains the name should be the Flare address.
+- Add or edit your file inside the providers folder. The name of the file should be the submitting address. If your TSO submits on both chains the name should be the Flare address.
 - Submit a Pull Request to this repo.
 
 ## File format
