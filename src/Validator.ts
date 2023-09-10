@@ -9,11 +9,13 @@ dotenv.config();
 
 export class Validator {
   registryAddress = "0xaD67FE66660Fb8dFE9d6b1b4240d8650e30F6019";
-  githubConfig = {
-    headers: {
-      Authorization: `Bearer ${process.env.GITHUB_API_TOKEN}`,
-    },
-  };
+  githubConfig = process.env.GITHUB_API_TOKEN
+    ? {
+        headers: {
+          Authorization: `Bearer ${process.env.GITHUB_API_TOKEN}`,
+        },
+      }
+    : { headers: {} };
   flareConfig = {
     headers: {
       "x-apikey": process.env.FLARE_API_KEY,
@@ -360,7 +362,10 @@ export class Validator {
         chainId,
         "PollingFtso"
       );
-      const pollingContract = await this.createContract(chainId, pollingAddress);
+      const pollingContract = await this.createContract(
+        chainId,
+        pollingAddress
+      );
 
       const proxyAddress = await pollingContract.methods
         .providerToProxy(address)
