@@ -2,7 +2,7 @@
 
 ## How to submit a file
 
-- Authorise your github user/s with one of the following methods:
+- Authorise your github user/s with one of the following methods. Keep in mind that you have to authorize the user from Flare and Songbird if you are submitting on both chains.
     - Use our Dapp: https://app.flaredashboard.io/
     - Alternatively:
         - Check your user id with the endpoint https://api.github.com/users/{username}
@@ -24,7 +24,7 @@ Required fields:
 - members (number of members of the team running the TSO)
 - country (country where the headquarters are located)
 - nodes (total number of nodes that the TSO runs on both chains)
-- categories (array of categories that the team is building products)
+- categories (array of categories that the team is building products). The valid categories are: "NFT", "DeFi", "Metaverse", "Wallets", "Gaming" and "Utilities".
 - ftso_info/stso_info (at least one is required)
     - chainId (14 for Flare, 19 for Songbird) - Required
     - address (submitting address of the TSO) - Required
