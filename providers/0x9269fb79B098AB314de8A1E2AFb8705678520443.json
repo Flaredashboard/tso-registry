@@ -7,14 +7,14 @@
     "country": "United States",
     "nodes": 3,
     "categories": ["Utilities"],
-    "ftso_info": {
-      "chainId": 14,
-      "address": "0x9269fb79B098AB314de8A1E2AFb8705678520443",
-      "epoch": 1
-    },
     "stso_info": {
       "chainId": 19,
       "address": "0x6d323e71e141ce2d7b752313c8a654a9c9d1b377",
+      "epoch": 1
+    },
+    "ftso_info": {
+      "chainId": 14,
+      "address": "0x9269fb79B098AB314de8A1E2AFb8705678520443",
       "epoch": 1
     },
     "twitter": "https://twitter.com/AureusOx",
