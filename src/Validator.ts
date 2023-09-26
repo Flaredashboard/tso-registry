@@ -285,10 +285,12 @@ export class Validator {
         );
       }
       if ("stso_info" in file) {
-        if (!addressNameValidated && addressName === file.stso_info.address) {
-          addressNameValidated = true;
-        } else {
-          throw new Error("Filename address does not match STSO");
+        if (!addressNameValidated) {
+          if (addressName === file.stso_info.address) {
+            addressNameValidated = true;
+          } else {
+            throw new Error("Filename address does not match STSO");
+          }
         }
 
         await this.checkIdWithSmartContract(
