@@ -70,7 +70,7 @@ export class Validator {
         chainId,
         asset
       );
-      if (providers.includes(address)) return true;
+      if (providers.some((item: string) => item.toLowerCase() == address.toLowerCase())) return true;
     }
 
     throw new Error(`Address is not whitelisted for any asset`);
