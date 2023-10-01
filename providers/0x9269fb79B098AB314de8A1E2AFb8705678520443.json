@@ -1,0 +1,26 @@
+{
+    "name": "Aureus Ox",
+    "website": "https://aureusox.com",
+    "description": "Aureus Ox runs a provider service submitting high quality pricing data since epoch 1 on Songbird. We pride ourselves on consistency, resilient data aggregation algorithms, and maintained uptime.",
+    "logoURI": "ipfs://QmUsuVT4LQry7EoxynfCk4oes6g3hhgzWS4eQjGSUxbAsC",
+    "members": 1,
+    "country": "United States",
+    "nodes": 3,
+    "categories": ["Utilities"],
+    "stso_info": {
+      "chainId": 19,
+      "address": "0x6d323e71e141ce2d7b752313c8a654a9c9d1b377",
+      "epoch": 1
+    },
+    "ftso_info": {
+      "chainId": 14,
+      "address": "0x9269fb79B098AB314de8A1E2AFb8705678520443",
+      "epoch": 1
+    },
+    "twitter": "https://twitter.com/AureusOx",
+    "infrastructure": "Aureus Ox maintains multiple nodes on Songbird + Flare and develops custom tooling to monitor and mitigate any service downtime. We also maintain application services to wrap, delegate and claim on both the Songbird and Flare networks",
+    "safeguards": "We implement multiple safegaurds, not limited to stable coin de-pegs",
+    "availability": "Aureus Ox has maintained close to ~100% uptime for provider services since conception on Songbird.",
+    "tooling": "All tooling is built in house. Wrap, delegate, and claim all from the Aureus Ox dash: https://aureusox.com/dashboard",
+    "products": ["https://aureusox.com/dashboard"]
+  }
