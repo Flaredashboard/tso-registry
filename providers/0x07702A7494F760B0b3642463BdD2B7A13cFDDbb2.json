@@ -1,0 +1,25 @@
+{
+    "name": "Atlas TSO",
+    "website": "https://tsoatlas.xyz",
+    "twitter": "https://twitter.com/TsoAtlas",
+    "description": "Doing what is best for the users and the network.",
+    "general": "A provider started by a passion for data. We try to become the best provider we can and learn from the process. Running a donation program from proceedings to feed children. Member of the first group of 33 providers picked for the validator program.",
+    "availability": "We strive to keep over 99.9% total availability on both networks. We have never had over 3h downtime since we started submitting. Availability on validator at 100% since the 1st day without a drop",
+    "logoURI": "https://tsoatlas.xyz/img/0x07702A7494F760B0b3642463BdD2B7A13cFDDbb2.png",
+    "members": 3,
+    "country": "Greece",
+    "nodes": 7,
+    "categories": [
+        "Gaming"
+    ],
+    "ftso_info": {
+        "chainId": 14,
+        "address": "0x07702A7494F760B0b3642463BdD2B7A13cFDDbb2",
+        "epoch": 26
+    },
+    "stso_info": {
+        "chainId": 19,
+        "address": "0xB5ECB64526F777Eb6f02D4A83AbAB1FAD26b1C00",
+        "epoch": 51
+    }
+}
