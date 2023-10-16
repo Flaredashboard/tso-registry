@@ -1,0 +1,26 @@
+{
+    "name": "Sun-Dara",
+    "website": "https://sun-dara.co.uk",
+    "twitter": "https://twitter.com/sundaracouk1",
+    "description": "We try to operate in the overall, best interest for the network.",
+    "general": "We are an independent FTSO, STSO and infrastructure provider to help support the ecosystem grow.",
+    "availability": "As time moved on, we should see our availability get better. We are currently upgrading network infrastructure to help with this.",
+    "logoURI": "https://sun-dara.co.uk/img/0x1E8F916CE03F4ce86186531a8994d366581Ed4be.png",
+    "members": 9,
+    "country": "Bangladesh",
+    "nodes": 4,
+    "categories": [
+        "DeFi",
+        "Utilities"
+    ],
+    "ftso_info": {
+        "chainId": 14,
+        "address": "0x1E8F916CE03F4ce86186531a8994d366581Ed4be",
+        "epoch": 1
+    },
+    "stso_info": {
+        "chainId": 19,
+        "address": "0x7394923453FC2F606cfb4D0ea1A5438BB8260D08",
+        "epoch": 3
+    }
+}

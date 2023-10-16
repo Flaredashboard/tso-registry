@@ -6,7 +6,7 @@
     - Use our Dapp: https://app.flaredashboard.io/
     - Alternatively:
         - Check your user id with the endpoint https://api.github.com/users/{username}
-        - Call the method getTsoGithubUsers from your submitting address (or a proxy address) with all the userIds that you want to authorise. The method is located at the implementation of the proxy contract which is at the address 0xda64978ff8f5fAAE13A928d0E6548bc0756205C3.
+        - Call the method setTsoGithubUsers from your submitting address (or a proxy address) with all the userIds that you want to authorise. The method is located at the implementation of the proxy contract which is at the address 0xda64978ff8f5fAAE13A928d0E6548bc0756205C3.
 - Fork the repo
 - Add or edit your file inside the providers folder. The name of the file should be the submitting address. If your TSO submits on both chains the name should be the Flare address.
 - Submit a Pull Request to this repo.
