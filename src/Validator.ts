@@ -70,7 +70,12 @@ export class Validator {
         chainId,
         asset
       );
-      if (providers.some((item: string) => item.toLowerCase() == address.toLowerCase())) return true;
+      if (
+        providers.some(
+          (item: string) => item.toLowerCase() == address.toLowerCase()
+        )
+      )
+        return true;
     }
 
     throw new Error(`Address is not whitelisted for any asset`);
@@ -351,7 +356,7 @@ export class Validator {
         implementationAddress
       );
 
-      const response = await contractImplementation.methods
+      let response = await contractImplementation.methods
         .getTsoGithubUsers(address)
         .call();
 
@@ -373,7 +378,11 @@ export class Validator {
         .providerToProxy(address)
         .call();
 
-      if (response.includes(proxyAddress)) {
+      response = await contractImplementation.methods
+        .getTsoGithubUsers(proxyAddress)
+        .call();
+
+      if (response.includes(id)) {
         console.log("Authorised user");
         return true;
       }
