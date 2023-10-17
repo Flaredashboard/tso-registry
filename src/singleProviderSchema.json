@@ -58,7 +58,7 @@
       "type": "string",
       "description": "A URI to the TSO provider twitter. Must use HTTPS",
       "maxLength": 150,
-      "pattern": "^https://twitter.com/[A-Za-z0-9/#.-]*[^/]$",
+      "pattern": "^https://twitter.com/[A-Za-z0-9/_]*[^/]$",
       "examples": ["https://twitter.com/dashboard_flare/"]
     },
     "members": {
