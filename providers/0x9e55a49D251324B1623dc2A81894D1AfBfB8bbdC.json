@@ -1,0 +1,25 @@
+{
+    "name": "FTSOCAN",
+    "website": "https://ftsocan.com/",
+    "twitter": "https://twitter.com/ftsocan",
+    "description": "Start building passive income with FTSO Canada today!",
+    "general": "FTSO Canada is your partner to help you build your passive income on the Flare Network, by providing the Flare Network with a fast and efficient price provider. FTSOCAN is also behind the Flare Linux project, a computer environment that makes deploying FLR and SGB nodes really simple on any computer/OS.",
+    "availability": "We are a high-availability price provider, and validator, with very constant uptimes of 99.99%+.",
+    "logoURI": "https://ftsocan.com/img/logo-dark-2.svg",
+    "members": 2,
+    "country": "Canada",
+    "nodes": 7,
+    "categories": [
+        "Utilities"
+    ],
+    "ftso_info": {
+        "chainId": 14,
+        "address": "0x9e55a49D251324B1623dc2A81894D1AfBfB8bbdC",
+        "epoch": 2
+    },
+    "stso_info": {
+        "chainId": 19,
+        "address": "0x7C255e428e95bEbc76e944D49D4F460C84b3A3c3",
+        "epoch": 40
+    }
+}
