@@ -1,0 +1,26 @@
+{
+  "name": "FocusTSO",
+  "website": "https://flr.globalfcx.com",
+  "description": "FocusTSO. Infrustructure Provider built by Focus Global Team and Polish Flare community members who run an educational portal in Polish, English and Japanese.",
+  "logoURI": "https://ftso.focusflr.app/focustso.png",
+  "members": 3,
+  "country": "Poland",
+  "nodes": 3,
+  "categories": ["Utilities"],
+  "stso_info": {
+    "chainId": 19,
+    "address": "0x8bb53ac4239834d518aa26502c318ea093e9763d",
+    "epoch": 102
+  }
+  "ftso_info": {
+    "chainId": 14,
+    "address": "0xb084575CaCedf7DEdd78329656715651F8f66712",
+    "epoch": 105
+  },
+  "twitter": "https://twitter.com/FocusTSO",
+  "infrastructure": "Our infrastructure is built on 3 Hetzner VPSs based in various locations in Europe. Flare and Songbird TSO have their own server and for testing purposes we use separate server. To expand our project and build the planned applications and portal we will need some additional resources. The current infrastructure/licences costs are approx. 400$/mo . Our current operational Focus Global project costs are estimated to be over 2000$/mo and we did not switch to full time yet. Many things cannot be valued because we do it with our own skills and experience.",
+  "safeguards": "Our servers are located in various locations across Europe. Our servers are capable to handle backup in case of any outage or issues. Servers for test environment is able to take over the mainnet operations for flare and songbird network. Of course all servers are secured by the newest security concepts and with cyber security best practices.",
+  "availbility": "FocusTSO has maintained close to ~100% uptime for TSO and Validation services.",
+  "tooling": "FocusTSO became an infrastructure provider and has very ambitious plans to build on the Flare Network. Currently, it provides accurate data to the Flare and Songbird Networks and also supports infrastructure by running the validation node.",
+  "products": ["https://focusflr.app","https://ftso.focusflr.app","https://sgb.focusflr.app","https://coston2.focusflr.app"]
+}
